@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 20:43:55 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 05:24:28 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/05/13 10:05:23 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/05/13 10:06:32 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractals.h"
-
-int	main(int argc, char *argv[])
+int	ft_tolower(int c)
 {
-	t_data	data;
-	
-	ft_parse_entry(argc, argv, &data);
-	if (argc > 1)
-		ft_do_stuff(&data);
-	return (0);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	else
+		return (c);
 }

@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 20:43:55 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 05:24:28 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/06/09 23:19:38 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/06/10 00:46:19 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractals.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_data	data;
-	
-	ft_parse_entry(argc, argv, &data);
-	if (argc > 1)
-		ft_do_stuff(&data);
-	return (0);
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

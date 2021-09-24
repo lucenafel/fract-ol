@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 20:43:55 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 05:24:28 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/05/28 23:05:55 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/05/31 22:49:29 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractals.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_data	data;
-	
-	ft_parse_entry(argc, argv, &data);
-	if (argc > 1)
-		ft_do_stuff(&data);
-	return (0);
+	void	*ptr;
+
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }

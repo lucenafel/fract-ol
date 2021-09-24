@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 20:43:55 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 05:24:28 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/05/29 00:08:35 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/05/29 00:14:19 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractals.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	ft_putchar_fd(char c, int fd)
 {
-	t_data	data;
-	
-	ft_parse_entry(argc, argv, &data);
-	if (argc > 1)
-		ft_do_stuff(&data);
-	return (0);
+	write(fd, &c, 1);
 }

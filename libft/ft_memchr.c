@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 20:43:55 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 05:24:28 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/05/25 19:18:08 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/05/25 23:56:42 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractals.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_data	data;
-	
-	ft_parse_entry(argc, argv, &data);
-	if (argc > 1)
-		ft_do_stuff(&data);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (*(unsigned char *)(s + i) == (unsigned char)c)
+			return ((unsigned char *)(s + i));
+		i++;
+	}
+	return (NULL);
 }

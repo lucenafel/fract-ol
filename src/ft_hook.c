@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_hook.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 20:43:55 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 05:24:28 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/09/23 03:49:46 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/09/24 04:49:45 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
 
-int	main(int argc, char *argv[])
+int	ft_free(t_data *data)
 {
-	t_data	data;
-	
-	ft_parse_entry(argc, argv, &data);
-	if (argc > 1)
-		ft_do_stuff(&data);
+	mlx_destroy_image(data->mlx, data->img);
+	mlx_clear_window(data->mlx, data->window);
+	mlx_destroy_window(data->mlx, data->window);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	exit(0);
+	return (0);
+}
+
+int	ft_key_hook(int key, t_data *data)
+{
+	if (key == 65307)
+		ft_free(data);
 	return (0);
 }

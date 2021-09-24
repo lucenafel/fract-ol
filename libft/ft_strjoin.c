@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 20:43:55 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 05:24:28 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/05/31 17:10:42 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/05/31 17:10:51 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractals.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_data	data;
-	
-	ft_parse_entry(argc, argv, &data);
-	if (argc > 1)
-		ft_do_stuff(&data);
-	return (0);
+	char	*new_str;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	new_str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!new_str || !s1 || !s2)
+		return (NULL);
+	while (s1[i])
+	{
+		new_str[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		new_str[i + j] = s2[j];
+		j++;
+	}
+	new_str[i + j] = '\0';
+	return (new_str);
 }

@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 20:43:55 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 05:24:28 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/05/20 12:13:33 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/06/10 21:01:19 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractals.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	t_data	data;
-	
-	ft_parse_entry(argc, argv, &data);
-	if (argc > 1)
-		ft_do_stuff(&data);
-	return (0);
+	size_t	i;
+
+	if (!dest && !src)
+		return (NULL);
+	i = 0;
+	while (i < n)
+	{
+		if (*(unsigned char *)(src + i) == (unsigned char)c)
+		{
+			*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
+			return (dest + i + 1);
+		}
+		*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
+		i++;
+	}
+	return (NULL);
 }

@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 20:43:55 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 05:24:28 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/05/24 16:09:10 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/06/10 21:39:53 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractals.h"
+#include "libft.h"
+#include <string.h>
 
-int	main(int argc, char *argv[])
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_data	data;
-	
-	ft_parse_entry(argc, argv, &data);
-	if (argc > 1)
-		ft_do_stuff(&data);
-	return (0);
+	size_t			i;
+
+	if ((!dest && !src) || n == 0)
+		return (dest);
+	i = 0;
+	if (dest <= src)
+		ft_memcpy(dest, src, n);
+	else
+	{
+		i = n - 1;
+		while (i < n)
+		{
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+			i--;
+		}
+	}
+	return (dest);
 }

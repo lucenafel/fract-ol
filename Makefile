@@ -6,7 +6,7 @@
 #    By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/01 20:02:48 by lfelipe-          #+#    #+#              #
-#    Updated: 2021/09/10 03:21:22 by lfelipe-         ###   ########.fr        #
+#    Updated: 2021/09/24 06:16:47 by lfelipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,39 +16,48 @@ CFLAGS	= -Wall -Wextra -Werror
 
 NAME	= fractol
 
-SRCS	= src/main.c src/mandelbrot.c
+SRCS	= main.c ft_mandelbrot.c ft_parse.c ft_draw.c ft_color.c ft_initialize.c \
+		  ft_pixel_put.c ft_hook.c
 
-SDIR	= src
+SDIR	= ./src/
 
-OBJS	= $(SRCS:$(SDIR)/%.c=$(ODIR)/%.o)
+OBJS	= $(addprefix $(ODIR), $(SRCS:.c=.o))
 
-ODIR	= obj
+ODIR	= ./obj/
+
+CLIBX	= ./minilibx-linux/libmlx_Linux.a
+
+CLIBFT	= ./libft/libft.a
 
 INCLUDE = -I ./minilibx-linux
 
-LIBX	= -lmlx_Linux -L./minilibx-linux -Imlx_linux -lXext -lX11 -lm -lz
+LIBX	= -lmlx_Linux -L./minilibx-linux -Imlx_linux -lXext -lX11 -lm -L./libft -lft
 
 RM		= rm -rf
 
-$(ODIR)/%.o: 	$(SDIR)/%.c
-			@mkdir -p obj
+$(ODIR)%.o:	$(SDIR)%.c
+			@mkdir -p $(ODIR)
 			$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-
-.minilibx:
-			make all -C ./minilibx-linux
 
 all:		$(NAME)
 
-$(NAME):	.minilibx $(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) $(LIBX) -o $(NAME)
+$(NAME):	$(CLIBX) $(CLIBFT) $(OBJS)
+			$(CC) $(CFLAGS) $(OBJS) $(LIBX) $(INCLUDE) -o $(NAME)
+
+$(CLIBFT):		
+			make -C ./libft
+
+$(CLIBX):
+			make all -C ./minilibx-linux
 
 clean:
 			$(RM) $(OBJS) $(ODIR)
 			make clean -C ./minilibx-linux
+			make clean -C ./libft
 
 fclean:    	clean
 			rm -rf $(NAME) $(ODIR)
 
 re:			fclean all
 
-.PHONY:		all clean fclean
+.PHONY:		all clean fclean re

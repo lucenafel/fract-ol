@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 20:43:55 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 05:24:28 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/05/15 20:35:48 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/05/27 20:40:02 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractals.h"
-
-int	main(int argc, char *argv[])
+int	ft_atoi(const char *str)
 {
-	t_data	data;
-	
-	ft_parse_entry(argc, argv, &data);
-	if (argc > 1)
-		ft_do_stuff(&data);
-	return (0);
+	int	signal;
+	int	result;
+
+	result = 0;
+	signal = 1;
+	while (*str == ' ' || *str == '\n' || *str == '\t'
+		|| *str == '\v' || *str == '\f' || *str == '\r')
+	{
+		str++;
+	}
+	if (*str == '-')
+	{
+		signal = -1;
+		str++;
+	}
+	else if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		result = (result * 10) + (*str - '0');
+		str++;
+	}
+	return (result * signal);
 }

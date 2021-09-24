@@ -1,0 +1,8 @@
+t_*.c
+*.out
+main.c
+test.c
+libftTester/
+*.o
+*.a
+*.so

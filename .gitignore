@@ -4,3 +4,4 @@ test.*
 *.a
 minilibx-linux/obj/
 minilibx-linux/test/mlx-test
+fractol

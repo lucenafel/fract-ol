@@ -6,13 +6,13 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 15:25:19 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 03:09:01 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/09/25 11:24:04 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
 
-static void	ft_initalize_fdata(t_fdata *fdata)
+void	ft_initalize_fdata(t_fdata *fdata)
 {
 	fdata->x = 0;
 	fdata->y = 0;
@@ -25,7 +25,7 @@ static void	ft_initalize_fdata(t_fdata *fdata)
 void	ft_mandelbrot(t_fdata *data)
 {
 	ft_initalize_fdata(data);
-	while (data->x * data->x + data->y * data->y < 4 && data->iter < 256)
+	while (data->xx + data->yy < 4 && data->iter < 256)
 	{
 		data->x = data->xx - data->yy + data->x0;
 		data->y = (data->temp - data->xx - data->yy) + data->y0;

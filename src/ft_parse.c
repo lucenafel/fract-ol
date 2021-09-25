@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 03:54:53 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 06:06:21 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/09/24 21:30:38 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	ft_entry_check(char **args, t_data *data)
 {
 	if (!ft_strncmp(args[0], "mandelbrot", 11))
 		data->f = ft_mandelbrot;
+	else if (!ft_strncmp(args[0], "julia", 5))
+		data->f = ft_julia;
 	else
 		printf("incorrect inputs!");
 }

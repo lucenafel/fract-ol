@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 19:53:30 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 06:11:43 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/09/25 11:25:12 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_fdata
 	double	y;
 	double	xx;
 	double	yy;
+	double	cx;
+	double	cy;
 }	t_fdata;
 
 typedef struct s_data
@@ -53,6 +55,8 @@ typedef struct s_cords
 	double	min_y;
 	double	max_x;
 	double	max_y;
+	double	cx;
+	double	cy;
 	int		mouse_x;
 	int		mouse_y;
 	int		height;
@@ -77,6 +81,9 @@ void	my_pixel_put(t_data *data, int x, int y, int color);
 void	ft_mandelbrot(t_fdata *data);
 int		ft_create_color(int iter);
 void	ft_do_stuff(t_data *data);
-int	ft_free(t_data *data);
+void	ft_julia(t_fdata *data);
+int		ft_free(t_data *data);
+void	ft_coords_initialize(t_cords *cords);
+void	ft_initalize_fdata(t_fdata *fdata);
 
 #endif 

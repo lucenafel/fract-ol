@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 03:54:53 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 21:30:38 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/01 17:28:38 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,19 @@ char	*ft_strtolower(char *str)
 	return (copy);
 }
 
-void	ft_args_free(char **args, int nargs)
-{
-	int	i;
-
-	i = 0;
-	if (*args)
-	{
-		while (i < nargs)
-		{
-			free(args[i]);
-			i++;
-		}
-	}
-	free(args);
-}
-
 void	ft_entry_check(char **args, t_data *data)
 {
 	if (!ft_strncmp(args[0], "mandelbrot", 11))
 		data->f = ft_mandelbrot;
 	else if (!ft_strncmp(args[0], "julia", 5))
+	{
 		data->f = ft_julia;
+		while (args)
+		{
+			printf("%s\n", *args);
+			args++;
+		}
+	}
 	else
 		printf("incorrect inputs!");
 }
@@ -69,10 +60,10 @@ void	ft_parse_entry(int argc, char **argv, t_data *data)
 	{
 		while (i < argc)
 		{
-			copy[i - 1] = ft_strtolower(argv[i]);
+			copy[i - 1] = ft_strtolower(*(argv + i));
 			i++;
 		}
 		ft_entry_check(copy, data);
 	}
-	ft_args_free(copy, argc);
+	ft_args_free(copy, argc - 1);
 }

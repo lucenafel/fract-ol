@@ -6,7 +6,7 @@
 #    By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 13:22:37 by lfelipe-          #+#    #+#              #
-#    Updated: 2021/09/16 16:13:20 by lfelipe-         ###   ########.fr        #
+#    Updated: 2021/09/27 22:04:36 by lfelipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,11 @@ PART2	= ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c \
 BONUS	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 		  ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 		  ft_lstclear.c ft_lstiter.c ft_lstmap.c
+
+NFUNC	= ft_isspace.c ft_atof.c
 B_OBJ	= $(BONUS:.c=.o)
 
-SRCS	= $(PART1) $(PART2)
+SRCS	= $(PART1) $(PART2) $(NFUNC)
 
 OBJS	= $(SRCS:.c=.o)
 

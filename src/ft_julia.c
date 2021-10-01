@@ -6,20 +6,19 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 17:38:37 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/25 12:00:45 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/09/28 03:38:06 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
-#include <math.h>
 
 void	ft_julia(t_fdata *data)
 {
-	double cx, cy;
+	double	cx;
+	double	cy;
 
-	cx = -0.7269;
+	cx = -1.7269;
 	cy = 0.1889;
-	
 	ft_initalize_fdata(data);
 	while (data->xx + data->yy < 4 && data->iter < 256)
 	{

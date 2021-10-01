@@ -6,25 +6,33 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 15:25:19 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/25 11:24:04 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/01 11:23:55 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
 
-void	ft_initalize_fdata(t_fdata *fdata)
+static int	ft_bounded_points(double x, double y)
 {
-	fdata->x = 0;
-	fdata->y = 0;
-	fdata->xx = 0;
-	fdata->yy = 0;
-	fdata->temp = 0;
-	fdata->iter = 0;
+	double	tmp;
+	int		i;
+
+	i = 0;
+	tmp = (x - 0.25) * (x - 0.25) + y * y;
+	if ((x + 1.0) * (x + 1.0) + y * y < 0.0625
+		|| tmp * (tmp + (x - 0.25)) < 0.25 * y * y
+		|| (((x + 0.125) * (x + 0.125)) + (y - 0.744) * (y - 0.744)) < 0.0088
+		|| (((x + 0.125) * (x + 0.125)) + (y + 0.744) * (y + 0.744)) < 0.0088)
+	{
+		i = 256;
+	}
+	return (i);
 }
 
 void	ft_mandelbrot(t_fdata *data)
 {
 	ft_initalize_fdata(data);
+	data->iter = ft_bounded_points(data->x0, data->y0);
 	while (data->xx + data->yy < 4 && data->iter < 256)
 	{
 		data->x = data->xx - data->yy + data->x0;

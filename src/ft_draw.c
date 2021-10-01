@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 02:30:59 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/24 06:12:02 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/09/28 03:37:11 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,20 @@ void	ft_draw_fractal(t_data *data, t_cords *cords)
 	ft_push_image(data);
 }
 
+int	ft_put_cordinade(int key, int x, int y)
+{
+	printf("key :%d ->%d, %d\n", key, x, y);
+	return (0);
+}
+
 void	ft_do_stuff(t_data *data)
 {
-	t_cords cords;
+	t_cords	cords;
 
 	ft_coords_initialize(&cords);
 	ft_mlx_initialize(data);
 	ft_draw_fractal(data, &cords);
-	mlx_hook(data->window, 17, 1L<<0, ft_free, data);
+	mlx_hook(data->window, 17, 1L << 0, ft_free, data);
+	mlx_hook(data->window, 06, 1L << 6, ft_put_cordinade, (void *)0);
 	mlx_loop(data->mlx);
 }

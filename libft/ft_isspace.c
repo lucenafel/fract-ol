@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hook.c                                          :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/23 03:49:46 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/28 03:35:39 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/09/27 19:05:42 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/09/27 22:07:00 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractals.h"
-
-int	ft_key_hook(int key, t_data *data)
+int	ft_isspace(int c)
 {
-	if (key == 65307)
-		ft_free(data);
-	return (0);
+	int	res;
+
+	if (c == ' ' || c == '\n' || c == '\t' || c == '\v'
+		|| c == '\f' || c == '\r')
+		res = 1;
+	else
+		res = 0;
+	return (res);
 }

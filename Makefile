@@ -6,7 +6,7 @@
 #    By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/01 20:02:48 by lfelipe-          #+#    #+#              #
-#    Updated: 2021/09/24 21:30:53 by lfelipe-         ###   ########.fr        #
+#    Updated: 2021/10/01 17:06:46 by lfelipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS	= -Wall -Wextra -Werror
 NAME	= fractol
 
 SRCS	= main.c ft_mandelbrot.c ft_parse.c ft_draw.c ft_color.c ft_initialize.c \
-		  ft_pixel_put.c ft_hook.c ft_julia.c
+		  ft_pixel_put.c ft_hook.c ft_julia.c ft_free.c
 
 SDIR	= ./src/
 
@@ -56,7 +56,7 @@ clean:
 			make clean -C ./libft
 
 fclean:    	clean
-			rm -rf $(NAME) $(ODIR)
+			rm -rf $(NAME) $(ODIR) $(CLIBFT) $(CLIBX)
 
 re:			fclean all
 

@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 19:53:30 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/25 11:25:12 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/01 16:11:33 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "mlx.h"
 # include <stdlib.h>
 # include <stdio.h>
+# include <math.h>
 # include "libft.h"
-
 
 typedef struct s_fdata
 {
@@ -35,18 +35,25 @@ typedef struct s_fdata
 	double	cy;
 }	t_fdata;
 
+typedef struct s_jpoint
+{
+	double	x;
+	double	y;
+}	t_jpoint;
+
 typedef struct s_data
 {
-	void	*mlx;
-	void	*img;
-	void	*window;
-	char	*addr;
-	void	(*f)(t_fdata *);
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		mouse_x;
-	int		mouse_y;
+	void		*mlx;
+	void		*img;
+	void		*window;
+	char		*addr;
+	void		(*f)(t_fdata *);
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	int			mouse_x;
+	int			mouse_y;
+	t_jpoint	jpoint;
 }	t_data;
 
 typedef struct s_cords
@@ -63,14 +70,12 @@ typedef struct s_cords
 	int		width;
 }	t_cords;
 
-typedef struct s_colors
-{
+typedef struct s_colors {
 	int	r;
 	int	g;
 	int	b;
 	int	t;
 }	t_colors;
-
 
 void	ft_draw_fractal(t_data *data, t_cords *coords);
 void	ft_mlx_initialize(t_data *data);
@@ -85,5 +90,8 @@ void	ft_julia(t_fdata *data);
 int		ft_free(t_data *data);
 void	ft_coords_initialize(t_cords *cords);
 void	ft_initalize_fdata(t_fdata *fdata);
+int		ft_free(t_data *data);
+void	ft_args_free(char **args, int nargs);
+void	ft_check_julia(char **args);
 
-#endif 
+#endif

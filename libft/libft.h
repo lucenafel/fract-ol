@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 11:28:58 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/07/22 07:20:50 by felipe           ###   ########.fr       */
+/*   Updated: 2021/09/27 22:04:24 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f) (void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+int		ft_isspace(int c);
+double	ft_atof(char *str);
 
 #endif

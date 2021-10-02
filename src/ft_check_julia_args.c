@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:06:12 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/01 17:17:00 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/02 04:08:25 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,15 @@
 
 void	ft_check_julia(char **args)
 {
-	printf("%%test");
+	int i;
+
+	i = 0;
+	if (*args[i] == '+' || *args[i] == '-')
+		i++;
+	while (!ft_isdigit(*args[i]))
+		i++;
+	if (*args[i] == '.')
+		i++;
+	while (!ft_isdigit(*args[i]))
+		i++;
 }

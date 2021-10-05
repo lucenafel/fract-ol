@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 19:53:30 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/01 16:11:33 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/04 17:38:11 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,6 @@ void	ft_coords_initialize(t_cords *cords);
 void	ft_initalize_fdata(t_fdata *fdata);
 int		ft_free(t_data *data);
 void	ft_args_free(char **args, int nargs);
-void	ft_check_julia(char **args);
+int		ft_valid_points(char *str);
 
 #endif

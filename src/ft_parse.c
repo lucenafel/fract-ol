@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 03:54:53 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/01 17:28:38 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/05 16:26:39 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,23 @@ char	*ft_strtolower(char *str)
 	return (copy);
 }
 
-void	ft_entry_check(char **args, t_data *data)
+void	ft_entry_check(int argc, char **argv, char *arg, t_data *data)
 {
-	if (!ft_strncmp(args[0], "mandelbrot", 11))
-		data->f = ft_mandelbrot;
-	else if (!ft_strncmp(args[0], "julia", 5))
+	if (!ft_strncmp(arg, "mandelbrot", 11) && argc == 2)
 	{
-		data->f = ft_julia;
-		while (args)
+		data->f = ft_mandelbrot;
+		printf("test ok");
+	}
+	else if (!ft_strncmp(arg, "julia", 5) && argc == 4)
+	{
+		if (ft_valid_points(argv[2]) && ft_valid_points(argv[3]))
 		{
-			printf("%s\n", *args);
-			args++;
+			data->jpoint.x = ft_atof(argv[2]);
+			data->jpoint.y = ft_atof(argv[3]);
+			data->f = ft_julia;
 		}
+		else
+			printf("incorrect inputs!");
 	}
 	else
 		printf("incorrect inputs!");
@@ -49,21 +54,14 @@ void	ft_entry_check(char **args, t_data *data)
 
 void	ft_parse_entry(int argc, char **argv, t_data *data)
 {
-	char	**copy;
-	int		i;
+	char	*copy;
 
-	i = 1;
-	copy = (char **)malloc(sizeof(char **) * (argc - 1));
-	if (argc == 1)
-		printf("Incorrect inputs!");
-	else
+	if (argv[1] && argc > 1)
 	{
-		while (i < argc)
-		{
-			copy[i - 1] = ft_strtolower(*(argv + i));
-			i++;
-		}
-		ft_entry_check(copy, data);
+		copy = ft_strtolower(argv[1]);
+		ft_entry_check(argc, argv, copy, data);
+		free(copy);
 	}
-	ft_args_free(copy, argc - 1);
+	else
+		printf("incorrect inputs!");
 }

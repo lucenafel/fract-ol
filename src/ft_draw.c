@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 02:30:59 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/01 20:08:26 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/05 18:16:03 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_draw_fractal(t_data *data, t_cords *cords)
 	t_fdata		fdata;
 
 	fdata.i = 0;
+	fdata.cx = data->jpoint.x;
+	fdata.cy = data->jpoint.y;
 	while (fdata.i < cords->width)
 	{
 		fdata.j = 0;
@@ -49,14 +51,16 @@ int	ft_put_cordinade(int key, int x, int y)
 	return (0);
 }
 
+int	ft_get_key(int key); // temp
+
 void	ft_do_stuff(t_data *data)
 {
-	t_cords	cords;
-
-	ft_coords_initialize(&cords);
+	ft_coords_initialize(&data->cords);
 	ft_mlx_initialize(data);
-	ft_draw_fractal(data, &cords);
+	ft_draw_fractal(data, &data->cords);
 	mlx_hook(data->window, 17, 1L << 0, ft_free, data);
 	mlx_hook(data->window, 06, 1L << 6, ft_put_cordinade, (void *)0);
+	mlx_mouse_hook(data->window, ft_mouse_hook, data);
+	mlx_key_hook(data->window, ft_get_key, data);
 	mlx_loop(data->mlx);
 }

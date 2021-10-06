@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 19:53:30 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/04 17:38:11 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/05 20:45:41 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <stdio.h>
 # include <math.h>
 # include "libft.h"
+
+# define K_LEFT 65361
+# define K_RIGHT 65363
+# define K_UP 65362
+# define K_DOWN 65364
+# define SFACTOR 1.05
 
 typedef struct s_fdata
 {
@@ -41,21 +47,6 @@ typedef struct s_jpoint
 	double	y;
 }	t_jpoint;
 
-typedef struct s_data
-{
-	void		*mlx;
-	void		*img;
-	void		*window;
-	char		*addr;
-	void		(*f)(t_fdata *);
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-	int			mouse_x;
-	int			mouse_y;
-	t_jpoint	jpoint;
-}	t_data;
-
 typedef struct s_cords
 {
 	double	min_x;
@@ -69,6 +60,22 @@ typedef struct s_cords
 	int		height;
 	int		width;
 }	t_cords;
+
+typedef struct s_data
+{
+	void		*mlx;
+	void		*img;
+	void		*window;
+	char		*addr;
+	void		(*f)(t_fdata *);
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	int			mouse_x;
+	int			mouse_y;
+	t_jpoint	jpoint;
+	t_cords		cords;
+}	t_data;
 
 typedef struct s_colors {
 	int	r;
@@ -93,5 +100,7 @@ void	ft_initalize_fdata(t_fdata *fdata);
 int		ft_free(t_data *data);
 void	ft_args_free(char **args, int nargs);
 int		ft_valid_points(char *str);
+void	ft_zoom_in(int d, int x, int y, t_cords *cords);
+int	ft_mouse_hook(int key, int x, int y, t_data *data);
 
 #endif

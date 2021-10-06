@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:06:12 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/04 17:55:50 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/05 15:59:59 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_valid_points(char *str)
 {
-	int	i;
-	int	res;
+	size_t	i;
+	int		res;
 
 	res = 0;
 	i = 0;

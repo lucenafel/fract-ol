@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 17:05:34 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/05 17:10:02 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/06 00:50:55 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	ft_coords_initialize(t_cords *cords)
 {
 	cords->width = 800;
 	cords->height = 600;
-	cords->max_x = 2.0;
-	cords->min_x = -2.0;
-	cords->max_y = 2.0;
-	cords->min_y = -2.0;
+	cords->max_x = 1.0;
+	cords->min_x = -2.2;
+	cords->max_y = 1.1;
+	cords->min_y = -1.1;
 }
 
 void	ft_push_image(t_data *data)

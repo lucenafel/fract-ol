@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_color.c                                         :+:      :+:    :+:   */
+/*   ft_burning_ship.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/23 04:25:00 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/06 02:02:27 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/10/06 02:05:57 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/10/06 02:15:05 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
-#include "math.h"
 
-int	ft_create_color(int iter)
+void	ft_draw_burning(t_fdata *data)
 {
-	t_colors	color;
-	double		t;
-
-	t = (double)log(iter) / log(256.0);
-	// t = (double) iter / 256.0;
-	color.r = 9 * (1 - t) * t * t * t * 255;
-	color.g = 15 * (1 - t) * (1 - t) * t * t * 255;
-	color.b = 8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255;
-
-	return (color.t << 24 | color.r << 16 | color.g << 8 | color.b);
+	ft_initalize_fdata(data);
+	data->xx = data->x0;
+	data->yy = data->y0;
+	while (data->xx * data->xx + data->yy * data->yy < 4 && data->iter < 256)
+	{
+		data->temp = data->xx * data->xx - data->yy * data->yy + data->x0;
+		data->yy = fabs(2 * data->xx * data->yy) + data->y0;
+		data->xx = data->temp;
+		data->iter++;
+	}
 }

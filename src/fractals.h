@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 19:53:30 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/06 02:13:01 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/07 01:08:19 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,6 @@ int		ft_valid_points(char *str);
 void	ft_zoom_in(int d, int x, int y, t_cords *cords);
 int		ft_mouse_hook(int key, int x, int y, t_data *data);
 void	ft_draw_burning(t_fdata *data);
+void	ft_draw_tricorn(t_fdata *data);
 
 #endif

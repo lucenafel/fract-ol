@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 03:54:53 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/06 02:12:50 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/07 01:09:01 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	ft_entry_check(int argc, char **argv, char *arg, t_data *data)
 	}
 	else if (!ft_strncmp(arg, "burningship", 11))
 		data->f = ft_draw_burning;
+	else if(!ft_strncmp(arg, "tricorn", 7))
+		data->f = ft_draw_tricorn;
 	else
 		printf("incorrect inputs!");
 }

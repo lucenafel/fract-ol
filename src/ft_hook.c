@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 03:49:46 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/06 02:24:20 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 01:02:27 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,5 @@ int	ft_get_key(int key, t_data *data)
 {
 	if (key == 65307)
 		ft_free(data);
-	if (key == K_LEFT)
-		data->cords.max_x *= data->cords.max_x * 1.05;
-	if (key == K_RIGHT)
-		data->cords.min_x /= data->cords.min_x * 1.05;
-	if (key == K_UP)
-		data->cords.max_y *= data->cords.max_y * 1.05;
-	if (key == K_DOWN)
-		data->cords.min_y /= data->cords.min_y * 1.05;
-	ft_draw_fractal(data, &data->cords);
 	return (0);
 }

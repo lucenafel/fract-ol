@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 19:53:30 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/07 01:08:19 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 00:53:34 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 # define K_UP 65362
 # define K_DOWN 65364
 # define SFACTOR 1.05
+# define MAXITER 256
+# define WIDTH 800
+# define HEIGHT 600
 
 typedef struct s_fdata
 {
@@ -57,8 +60,8 @@ typedef struct s_cords
 	double	cy;
 	int		mouse_x;
 	int		mouse_y;
-	int		height;
 	int		width;
+	int		height;
 }	t_cords;
 
 typedef struct s_data
@@ -86,7 +89,7 @@ typedef struct s_colors {
 
 void	ft_draw_fractal(t_data *data, t_cords *coords);
 void	ft_mlx_initialize(t_data *data);
-void	ft_push_image(t_data *data);
+int		ft_push_image(t_data *data);
 void	ft_coords_initialize(t_cords *cords);
 void	ft_parse_entry(int argc, char **argv, t_data *data);
 void	my_pixel_put(t_data *data, int x, int y, int color);

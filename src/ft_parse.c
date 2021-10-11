@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 03:54:53 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/07 01:09:01 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/11 22:15:38 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ char	*ft_strtolower(char *str)
 void	ft_entry_check(int argc, char **argv, char *arg, t_data *data)
 {
 	if (!ft_strncmp(arg, "mandelbrot", 11) && argc == 2)
-	{
 		data->f = ft_mandelbrot;
-		printf("test ok");
-	}
 	else if (!ft_strncmp(arg, "julia", 5) && argc == 4)
 	{
 		if (ft_valid_points(argv[2]) && ft_valid_points(argv[3]))
@@ -50,7 +47,7 @@ void	ft_entry_check(int argc, char **argv, char *arg, t_data *data)
 	}
 	else if (!ft_strncmp(arg, "burningship", 11))
 		data->f = ft_draw_burning;
-	else if(!ft_strncmp(arg, "tricorn", 7))
+	else if (!ft_strncmp(arg, "tricorn", 7))
 		data->f = ft_draw_tricorn;
 	else
 		printf("incorrect inputs!");

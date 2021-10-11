@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 15:25:19 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/06 00:29:23 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/11 23:34:35 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_mandelbrot(t_fdata *data)
 {
 	ft_initalize_fdata(data);
 	data->iter = ft_bounded_points(data->x0, data->y0);
-	while (data->xx + data->yy < 4 && data->iter < 256)
+	while (data->xx + data->yy < 4 && data->iter < MAXITER)
 	{
 		data->x = data->xx - data->yy + data->x0;
 		data->y = (data->temp - data->xx - data->yy) + data->y0;

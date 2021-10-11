@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 17:38:37 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/05 16:21:44 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/11 23:34:25 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_julia(t_fdata *data)
 {
 	ft_initalize_fdata(data);
-	while (data->xx + data->yy < 4 && data->iter < 256)
+	while (data->xx + data->yy < 4 && data->iter < MAXITER)
 	{
 		data->xx = data->x0 * data->x0;
 		data->yy = data->y0 * data->y0;

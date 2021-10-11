@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 19:21:51 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/05 20:46:07 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/11 23:31:56 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_zoom_in(int d, int x, int y, t_cords *cords)
 	double	dx;
 	double	dy;
 
-	rx = x / (double)cords->width;
-	ry = y / (double)cords->height;
+	rx = x / (double)WIDTH;
+	ry = y / (double)HEIGHT;
 	dx = cords->max_x - cords->min_x;
 	dy = cords->max_y - cords->min_y;
 	if (d == 1)

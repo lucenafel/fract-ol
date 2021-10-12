@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 03:49:46 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 01:02:27 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 02:25:11 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,17 @@ int	ft_mouse_hook(int key, int x, int y, t_data *data)
 	return (0);
 }
 
-int	ft_get_key(int key, t_data *data)
+int	ft_key_hook(int key, t_data *data)
 {
 	if (key == 65307)
 		ft_free(data);
+	/* if (key == K_LEFT)
+		data->cords.width += 3;
+	if (key == K_RIGHT)
+		data->cords.width -= 3;
+	if (key == K_UP)
+		data->cords.height += 3;
+	if (key == K_DOWN)
+		data->cords.height -= 3; */
 	return (0);
 }

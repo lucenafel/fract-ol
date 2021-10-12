@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tricorn.c                                       :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 01:03:08 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 01:05:16 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/10/12 02:20:19 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/10/12 02:20:44 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
 
-void	ft_draw_tricorn(t_fdata *data)
+char	*ft_strtolower(char *str)
 {
-	ft_initalize_fdata(data);
-	data->x = data->x0;
-	data->y = data->y0;
-	data->xx = data->x;
-	data->yy = data->y;
-	while (data->xx * data->xx + data->yy + data->yy < 4
-		&& data->iter < MAXITER)
+	char	*copy;
+	int		i;
+
+	i = 0;
+	copy = (char *)malloc(ft_strlen(str) + 1);
+	if (!copy)
+		return (0);
+	while (str[i])
 	{
-		data->temp = data->xx * data->xx - data->yy * data->yy + data->x;
-		data->yy = -2 * data->xx * data->yy + data->y;
-		data->xx = data->temp;
-		data->iter++;
+		copy[i] = ft_tolower(str[i]);
+		i++;
 	}
+	copy[i] = '\0';
+	return (copy);
 }

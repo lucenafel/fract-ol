@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 19:53:30 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 00:53:34 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 02:25:28 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct s_data
 	int			endian;
 	int			mouse_x;
 	int			mouse_y;
+	int			type;
 	t_jpoint	jpoint;
 	t_cords		cords;
 }	t_data;
@@ -90,7 +91,6 @@ typedef struct s_colors {
 void	ft_draw_fractal(t_data *data, t_cords *coords);
 void	ft_mlx_initialize(t_data *data);
 int		ft_push_image(t_data *data);
-void	ft_coords_initialize(t_cords *cords);
 void	ft_parse_entry(int argc, char **argv, t_data *data);
 void	my_pixel_put(t_data *data, int x, int y, int color);
 void	ft_mandelbrot(t_fdata *data);
@@ -98,7 +98,7 @@ int		ft_create_color(int iter);
 void	ft_do_stuff(t_data *data);
 void	ft_julia(t_fdata *data);
 int		ft_free(t_data *data);
-void	ft_coords_initialize(t_cords *cords);
+void	ft_coords_initialize(t_data *data);
 void	ft_initalize_fdata(t_fdata *fdata);
 int		ft_free(t_data *data);
 void	ft_args_free(char **args, int nargs);
@@ -107,5 +107,7 @@ void	ft_zoom_in(int d, int x, int y, t_cords *cords);
 int		ft_mouse_hook(int key, int x, int y, t_data *data);
 void	ft_draw_burning(t_fdata *data);
 void	ft_draw_tricorn(t_fdata *data);
+char	*ft_strtolower(char *str);
+int		ft_key_hook(int key, t_data *data);
 
 #endif

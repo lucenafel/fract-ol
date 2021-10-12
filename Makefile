@@ -6,7 +6,7 @@
 #    By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/01 20:02:48 by lfelipe-          #+#    #+#              #
-#    Updated: 2021/10/07 01:09:29 by lfelipe-         ###   ########.fr        #
+#    Updated: 2021/10/12 02:21:07 by lfelipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME	= fractol
 
 SRCS	= main.c ft_mandelbrot.c ft_parse.c ft_draw.c ft_color.c ft_initialize.c \
 		  ft_pixel_put.c ft_hook.c ft_julia.c ft_free.c ft_check_julia_args.c \
-		  ft_zoom.c ft_burning_ship.c ft_tricorn.c
+		  ft_zoom.c ft_burning_ship.c ft_tricorn.c ft_utils.c
 
 SDIR	= ./src/
 

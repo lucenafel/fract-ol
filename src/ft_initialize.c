@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 17:05:34 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 01:02:22 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 18:41:10 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,32 @@ void	ft_mlx_initialize(t_data *data)
 			&data->line_length, &data->endian);
 }
 
-void	ft_coords_initialize(t_cords *cords)
+void	ft_coords_initialize(t_data *data)
 {
-	cords->max_x = 1.0;
-	cords->min_x = -2.5;
-	cords->max_y = 1.0;
-	cords->min_y = -1.0;
+	if (data->type == 'm')
+	{
+		data->cords.max_x = 1.0;
+		data->cords.min_x = -2.5;
+		data->cords.max_y = 1.1;
+		data->cords.min_y = -1.1;
+	}
+	if (data->type == 'j')
+	{
+		data->cords.max_x = 2.0;
+		data->cords.min_x = -2.0;
+		data->cords.max_y = 2.0;
+		data->cords.min_y = -2.0;
+	}
+	if (data->type == 'b')
+	{
+		data->cords.max_x = 1.5;
+		data->cords.min_x = -2.5;
+		data->cords.max_y = 1.0;
+		data->cords.min_y = -2.0;
+	}
 }
 
-int		ft_push_image(t_data *data)
+int	ft_push_image(t_data *data)
 {
 	mlx_put_image_to_window(data->mlx, data->window, data->img, 0, 0);
 	return (0);

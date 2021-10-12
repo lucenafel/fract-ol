@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:06:12 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/11 22:19:09 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 18:49:48 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_compare_points(char *str, t_cpoint *point)
 		point->bdot++;
 		str++;
 	}
-	if ((point->adot > 0 && point->bdot > 0) || point->adot > 0)
+	if ((point->adot > 0 && point->bdot > 0) || point->adot > 0 && point->adot == 0)
 		point->total = point->signal + point->adot + point->dot + point->bdot;
 	return (point->total);
 }

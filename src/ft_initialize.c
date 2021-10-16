@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 17:05:34 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/16 20:19:55 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/16 22:50:32 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void	ft_coords_initialize(t_data *data)
 int	ft_push_image(t_data *data)
 {
 	mlx_put_image_to_window(data->mlx, data->window, data->img, 0, 0);
+	mlx_put_image_to_window(data->mlx, data->window, data->img_s, 800, 0);
+	ft_print_help(data);
 	return (0);
 }
 

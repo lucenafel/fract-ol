@@ -6,21 +6,11 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:06:12 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 18:50:40 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 19:36:43 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
-
-typedef struct s_point
-{
-	int	signal;
-	int	dot;
-	int	adot;
-	int	bdot;
-	int	total;
-	int	check;
-}	t_cpoint;
 
 void	init_points(t_cpoint *point)
 {
@@ -42,7 +32,7 @@ int	ft_compare_points(char *str, t_cpoint *point)
 	}
 	while (ft_isdigit(*str))
 	{
-		point->adot++;
+		point->bdot++;
 		str++;
 	}
 	if (*str == '.')
@@ -52,10 +42,11 @@ int	ft_compare_points(char *str, t_cpoint *point)
 	}
 	while (ft_isdigit(*str))
 	{
-		point->bdot++;
+		point->adot++;
 		str++;
 	}
-	if ((point->adot > 0 && point->bdot > 0) || (point->adot > 0 && point->dot == 0))
+	if ((point->bdot > 0 && point->adot > 0)
+		|| (point->bdot > 0 && point->dot == 0))
 		point->total = point->signal + point->adot + point->dot + point->bdot;
 	return (point->total);
 }

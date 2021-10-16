@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 20:43:55 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/11 22:14:28 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/15 18:51:34 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char *argv[])
 
 	data.f = NULL;
 	ft_parse_entry(argc, argv, &data);
-	if (argc > 1 && data.f)
+	if (data.f)
 		ft_do_stuff(&data);
 	return (0);
 }

@@ -6,11 +6,22 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 03:54:53 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 02:20:48 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/14 20:32:33 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
+
+void	ft_entry_check2(int argc, char *arg, t_data *data)
+{
+	if (!ft_strncmp(arg, "tricorn", 7) && argc == 2)
+	{
+		data->f = ft_draw_tricorn;
+		data->type = 't';
+	}
+	else
+		ft_error();
+}
 
 void	ft_entry_check(int argc, char **argv, char *arg, t_data *data)
 {
@@ -29,15 +40,15 @@ void	ft_entry_check(int argc, char **argv, char *arg, t_data *data)
 			data->type = 'j';
 		}
 		else
-			printf("incorrect inputs!");
+			ft_error();
 	}
-	else if (!ft_strncmp(arg, "burningship", 11))
+	else if (!ft_strncmp(arg, "burningship", 11) && argc == 2)
 	{
 		data->f = ft_draw_burning;
 		data->type = 'b';
 	}
 	else
-		printf("incorrect inputs!");
+		ft_entry_check2(argc, arg, data);
 }
 
 void	ft_parse_entry(int argc, char **argv, t_data *data)
@@ -51,5 +62,5 @@ void	ft_parse_entry(int argc, char **argv, t_data *data)
 		free(copy);
 	}
 	else
-		printf("incorrect inputs!");
+		ft_error();
 }

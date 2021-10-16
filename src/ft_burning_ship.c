@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 02:05:57 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/06 02:15:05 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/15 22:13:26 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_draw_burning(t_fdata *data)
 {
 	ft_initalize_fdata(data);
+	data->iter = 1;
 	data->xx = data->x0;
 	data->yy = data->y0;
 	while (data->xx * data->xx + data->yy * data->yy < 4 && data->iter < 256)

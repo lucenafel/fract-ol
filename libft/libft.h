@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 11:28:58 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/27 22:04:24 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 19:40:34 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_atof
+{
+	double	res;
+	double	bdot;
+	double	adot;
+	int		count;
+	int		signal;
+}	t_atof;
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);

@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 17:05:34 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 18:41:10 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/15 21:08:53 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,17 @@ void	ft_mlx_initialize(t_data *data)
 			&data->line_length, &data->endian);
 }
 
+static void	ft_coords_2(t_data *data)
+{
+	if (data->type == 't')
+	{
+		data->cords.max_x = 1.5;
+		data->cords.min_x = -2.0;
+		data->cords.max_y = 1.5;
+		data->cords.min_y = -1.5;
+	}
+}
+
 void	ft_coords_initialize(t_data *data)
 {
 	if (data->type == 'm')
@@ -30,20 +41,22 @@ void	ft_coords_initialize(t_data *data)
 		data->cords.max_y = 1.1;
 		data->cords.min_y = -1.1;
 	}
-	if (data->type == 'j')
+	else if (data->type == 'j')
 	{
 		data->cords.max_x = 2.0;
 		data->cords.min_x = -2.0;
 		data->cords.max_y = 2.0;
 		data->cords.min_y = -2.0;
 	}
-	if (data->type == 'b')
+	else if (data->type == 'b')
 	{
 		data->cords.max_x = 1.5;
 		data->cords.min_x = -2.5;
 		data->cords.max_y = 1.0;
 		data->cords.min_y = -2.0;
 	}
+	else
+		ft_coords_2(data);
 }
 
 int	ft_push_image(t_data *data)

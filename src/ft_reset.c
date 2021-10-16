@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tricorn.c                                       :+:      :+:    :+:   */
+/*   ft_reset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 01:03:08 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/15 22:13:20 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/10/15 17:16:37 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/10/15 17:19:38 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
 
-void	ft_draw_tricorn(t_fdata *data)
+void	ft_backup_pos(t_data *data)
 {
-	ft_initalize_fdata(data);
-	data->iter = 1;
-	data->x = data->x0;
-	data->y = data->y0;
-	data->xx = data->x;
-	data->yy = data->y;
-	while (data->xx * data->xx + data->yy + data->yy < 4
-		&& data->iter < MAXITER)
-	{
-		data->temp = data->xx * data->xx - data->yy * data->yy + data->x;
-		data->yy = -2 * data->xx * data->yy + data->y;
-		data->xx = data->temp;
-		data->iter++;
-	}
+	data->reset.rmax_x = data->cords.max_x;
+	data->reset.rmax_y = data->cords.max_y;
+	data->reset.rmin_x = data->cords.min_x;
+	data->reset.rmin_y = data->cords.min_y;
+}
+
+void	ft_reset_pos(t_data *data)
+{
+	data->cords.max_x = data->reset.rmax_x;
+	data->cords.max_y = data->reset.rmax_y;
+	data->cords.min_x = data->reset.rmin_x;
+	data->cords.min_y = data->reset.rmin_y;
 }

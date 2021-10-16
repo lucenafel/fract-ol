@@ -6,20 +6,11 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 19:14:35 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/29 19:11:51 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 19:40:35 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-typedef struct s_atof
-{
-	double	res;
-	double	bdot;
-	double	adot;
-	int		count;
-	int		signal;
-}	t_atof;
 
 static int	calcpow(int base, int expo)
 {

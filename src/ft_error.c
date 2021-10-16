@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tricorn.c                                       :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 01:03:08 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/15 22:13:20 by lfelipe-         ###   ########.fr       */
+/*   Created: 2021/10/14 18:52:58 by lfelipe-          #+#    #+#             */
+/*   Updated: 2021/10/15 15:06:37 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
 
-void	ft_draw_tricorn(t_fdata *data)
+void	ft_error(void)
 {
-	ft_initalize_fdata(data);
-	data->iter = 1;
-	data->x = data->x0;
-	data->y = data->y0;
-	data->xx = data->x;
-	data->yy = data->y;
-	while (data->xx * data->xx + data->yy + data->yy < 4
-		&& data->iter < MAXITER)
-	{
-		data->temp = data->xx * data->xx - data->yy * data->yy + data->x;
-		data->yy = -2 * data->xx * data->yy + data->y;
-		data->xx = data->temp;
-		data->iter++;
-	}
+	printf("\033[1;31m");
+	printf("[INVALID INPUTS]\n");
+	printf("avaliable fractals are : mandelbrot, julia ,burningship\
+ and tricorn\n");
+	printf("eg : ./fractal \"fractal name\"\n");
+	printf("julia requires adtional inputs\n");
+	printf("eg : ./fractal julia \"real\" \"imaginary\"\n");
+	printf("     ./fractal julia -0.4 -0.6\n");
+	printf("\033[0;36m");
+	printf("offered by BDRS CODE!\n");
 }

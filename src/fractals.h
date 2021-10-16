@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 19:53:30 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/16 00:38:02 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/16 21:38:22 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,17 @@ typedef struct s_data
 {
 	void		*mlx;
 	void		*img;
+	void		*img_s;
 	void		*window;
 	char		*addr;
+	char		*addr_s;
 	void		(*f)(t_fdata *);
 	int			bits_per_pixel;
+	int			bits_per_pixel_s;
 	int			line_length;
+	int			line_length_s;	
 	int			endian;
+	int			endian_s;
 	int			type;
 	int			*colors;
 	t_reset		reset;
@@ -110,6 +115,7 @@ typedef struct s_colors {
 	int	t;
 }	t_colors;
 
+void	ft_do_stuff(t_data *data);
 void	ft_calc_colors(t_data *data);
 void	ft_draw_fractal(t_data *data, t_cords *coords);
 void	ft_mlx_initialize(t_data *data);
@@ -135,5 +141,7 @@ int		ft_free(t_data *data);
 int		ft_valid_points(char *str);
 int		ft_mouse_hook(int key, int x, int y, t_data *data);
 int		ft_key_hook(int key, t_data *data);
+void	ft_draw_help(t_data *data);
+void	ft_print_help(t_data *data);
 
 #endif

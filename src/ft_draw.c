@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 02:30:59 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/15 22:15:04 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/16 22:10:05 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,25 @@ void	ft_draw_fractal(t_data *data, t_cords *cords)
 	ft_push_image(data);
 }
 
-void	ft_do_stuff(t_data *data)
+void	ft_draw_help(t_data *data)
 {
-	ft_coords_initialize(data);
-	ft_backup_pos(data);
-	ft_calc_colors(data);
-	ft_mlx_initialize(data);
-	ft_draw_fractal(data, &data->cords);
-	mlx_hook(data->window, 17, 1L << 0, ft_free, data);
-	// mlx_hook(data->window, 06, 1L << 6, ft_put_cordinade, data);
-	mlx_expose_hook(data->window, ft_push_image, data);
-	mlx_mouse_hook(data->window, ft_mouse_hook, data);
-	mlx_key_hook(data->window, ft_key_hook, data);
-	mlx_loop(data->mlx);
+	int		x;
+	int		y;
+	char	*dst;
+
+	x = 0;
+	while (x < 200)
+	{
+		y = 0;
+		while (y < 600)
+		{
+			dst = data->addr_s + (y * data->line_length_s + x
+					* (data->bits_per_pixel_s / 8));
+			*(int *)dst = 0x00363636;
+			y++;
+		}
+		x++;
+	}
+	mlx_put_image_to_window(data->mlx, data->window, data->img_s, 800, 0);
+	ft_print_help(data);
 }

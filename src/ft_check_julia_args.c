@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:06:12 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 19:36:43 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/16 19:04:05 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	init_points(t_cpoint *point)
 	point->total = 0;
 }
 
-// checar pontos validos por meio de uma struct 
 int	ft_compare_points(char *str, t_cpoint *point)
 {
 	init_points(point);
@@ -53,21 +52,7 @@ int	ft_compare_points(char *str, t_cpoint *point)
 
 int	ft_valid_points(char *str)
 {
-	size_t		i;
-	int			res;
 	t_cpoint	point;
 
-	res = 0;
-	i = 0;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	while (ft_isdigit(str[i]))
-		i++;
-	if (str[i] == '.')
-		i++;
-	while (ft_isdigit(str[i]))
-		i++;
-	if ((size_t)ft_compare_points(str, &point) == ft_strlen(str))
-		res = 1;
-	return (res);
+	return ((size_t)ft_compare_points(str, &point) == ft_strlen(str));
 }

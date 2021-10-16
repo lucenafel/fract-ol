@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 17:05:34 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/15 21:08:53 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/16 20:19:55 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 void	ft_mlx_initialize(t_data *data)
 {
 	data->mlx = mlx_init();
-	data->window = mlx_new_window(data->mlx, WIDTH, HEIGHT, "fractal");
+	data->window = mlx_new_window(data->mlx, 1000, HEIGHT, "fractal");
+	data->img_s = mlx_new_image(data->mlx, 200, 600);
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
 			&data->line_length, &data->endian);
+	data->addr_s = mlx_get_data_addr(data->img_s, &data->bits_per_pixel_s,
+			&data->line_length_s, &data->endian_s);
 }
 
 static void	ft_coords_2(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 03:49:46 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/16 00:39:48 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/16 20:33:46 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_mouse_hook(int key, int x, int y, t_data *data)
 {
-	if (key == SCROLLUP)
+	if (key == SCROLLUP && x < 800)
 		ft_zoom(1, x, y, &data->cords);
-	if (key == SCROLLDOWN)
+	if (key == SCROLLDOWN && x < 800)
 		ft_zoom(-1, x, y, &data->cords);
 	ft_draw_fractal(data, &data->cords);
 	return (0);

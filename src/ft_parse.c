@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 03:54:53 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/14 20:32:33 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/18 18:53:42 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 void	ft_entry_check2(int argc, char *arg, t_data *data)
 {
-	if (!ft_strncmp(arg, "tricorn", 7) && argc == 2)
+	if (!ft_strncmp(arg, "burningship", 11) && argc == 2)
+	{
+		data->f = ft_draw_burning;
+		data->type = 'b';
+	}
+	else if (!ft_strncmp(arg, "tricorn", 7) && argc == 2)
 	{
 		data->f = ft_draw_tricorn;
 		data->type = 't';
@@ -41,11 +46,6 @@ void	ft_entry_check(int argc, char **argv, char *arg, t_data *data)
 		}
 		else
 			ft_error();
-	}
-	else if (!ft_strncmp(arg, "burningship", 11) && argc == 2)
-	{
-		data->f = ft_draw_burning;
-		data->type = 'b';
 	}
 	else
 		ft_entry_check2(argc, arg, data);

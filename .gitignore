@@ -6,3 +6,4 @@ minilibx-linux/obj/
 minilibx-linux/test/mlx-test
 fractol
 *.pdf
+src/*.h

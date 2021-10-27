@@ -6,7 +6,7 @@
 /*   By: lfelipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 19:53:30 by lfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/16 22:50:47 by lfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/21 06:54:50 by lfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
-
 
 # define K_ESC 65307
 # define K_R 114
@@ -66,10 +65,10 @@ typedef struct s_point
 
 typedef struct s_reset
 {
-	double rmin_x;
-	double rmin_y;
-	double rmax_x;
-	double rmax_y;
+	double	rmin_x;
+	double	rmin_y;
+	double	rmax_x;
+	double	rmax_y;
 }	t_reset;
 
 typedef struct s_cords
